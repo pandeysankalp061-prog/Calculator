@@ -1,0 +1,171 @@
+/* ============================================
+   Modern Calculator — style.css
+   ============================================ */
+
+/* ---------- Reset & Base ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: #0f0f1a;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ---------- Page Wrapper ---------- */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+/* ---------- Calculator Shell ---------- */
+.calculator {
+  width: 340px;
+  border-radius: 32px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(160deg, #1c1c2e 0%, #16162a 100%);
+}
+
+/* ---------- Display ---------- */
+.display {
+  padding: 2rem 1.5rem 1.25rem;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* History row — shows the expression e.g. "12 + 5 =" */
+.history {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 300;
+  min-height: 22px;
+  text-align: right;
+  letter-spacing: 0.3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Main large number */
+.main-number {
+  font-size: 56px;
+  font-weight: 300;
+  color: #ffffff;
+  text-align: right;
+  letter-spacing: -2px;
+  line-height: 1;
+  margin-top: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: font-size 0.1s ease;
+}
+
+/* Shrink font when number is long */
+.main-number.medium { font-size: 38px; }
+.main-number.small  { font-size: 28px; }
+
+/* ---------- Divider ---------- */
+.divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.05);
+  margin: 0 1.25rem;
+}
+
+/* ---------- Button Grid ---------- */
+.button-pad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 1.25rem;
+}
+
+/* ---------- Base Button ---------- */
+.btn {
+  border: none;
+  cursor: pointer;
+  border-radius: 16px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  height: 68px;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.1s ease, filter 0.15s ease;
+}
+
+/* Ripple overlay on hover */
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0);
+  transition: background 0.15s;
+}
+.btn:hover::after  { background: rgba(255, 255, 255, 0.07); }
+.btn:active        { transform: scale(0.92); }
+
+/* ---------- Button Variants ---------- */
+
+/* Number buttons */
+.btn.num {
+  background: #252540;
+  color: #ffffff;
+}
+
+/* Function buttons (AC, +/−, %) */
+.btn.fn {
+  background: #1e1e38;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+}
+
+/* Operator buttons (÷ × − +) */
+.btn.op {
+  background: linear-gradient(135deg, #6c63ff, #5248d8);
+  color: #ffffff;
+  font-size: 22px;
+}
+.btn.op:hover::after { background: rgba(255, 255, 255, 0.1); }
+
+/* Highlighted operator (currently selected) */
+.btn.op.active {
+  background: linear-gradient(135deg, #ffffff, #e0deff);
+  color: #5248d8;
+}
+
+/* Equals button */
+.btn.eq {
+  background: linear-gradient(135deg, #f7797d, #e05fa0);
+  color: #ffffff;
+  font-size: 22px;
+}
+.btn.eq:hover::after { background: rgba(255, 255, 255, 0.1); }
+
+/* Zero button spans 2 columns */
+.btn.zero {
+  grid-column: span 2;
+  text-align: left;
+  padding-left: 26px;
+  border-radius: 34px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 400px) {
+  .calculator { width: 300px; }
+  .btn        { height: 60px; font-size: 16px; }
+  .main-number { font-size: 44px; }
+}

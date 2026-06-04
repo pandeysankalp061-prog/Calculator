@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Calculator</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="calculator">
+
+        <!-- Display Section -->
+        <div class="display">
+          <div class="history" id="history">&nbsp;</div>
+          <div class="main-number" id="mainNumber">0</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Button Pad -->
+        <div class="button-pad">
+
+          <!-- Row 1 -->
+          <button class="btn fn" id="btn-ac"      onclick="clearAll()">AC</button>
+          <button class="btn fn" id="btn-sign"    onclick="toggleSign()">+/−</button>
+          <button class="btn fn" id="btn-percent" onclick="percent()">%</button>
+          <button class="btn op" id="op-/"        onclick="op('/')">÷</button>
+
+          <!-- Row 2 -->
+          <button class="btn num" onclick="num('7')">7</button>
+          <button class="btn num" onclick="num('8')">8</button>
+          <button class="btn num" onclick="num('9')">9</button>
+          <button class="btn op"  id="op-*" onclick="op('*')">×</button>
+
+          <!-- Row 3 -->
+          <button class="btn num" onclick="num('4')">4</button>
+          <button class="btn num" onclick="num('5')">5</button>
+          <button class="btn num" onclick="num('6')">6</button>
+          <button class="btn op"  id="op--" onclick="op('-')">−</button>
+
+          <!-- Row 4 -->
+          <button class="btn num" onclick="num('1')">1</button>
+          <button class="btn num" onclick="num('2')">2</button>
+          <button class="btn num" onclick="num('3')">3</button>
+          <button class="btn op"  id="op-+" onclick="op('+')">+</button>
+
+          <!-- Row 5 -->
+          <button class="btn num zero" onclick="num('0')">0</button>
+          <button class="btn num"      onclick="dot()">.</button>
+          <button class="btn eq"       onclick="equals()">=</button>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
